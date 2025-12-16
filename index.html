@@ -17,22 +17,30 @@
     <div id="gameplay" class="screen">
       <img id="bgGameplay" class="bg" src="assets/bg_gameplay.png" />
       <img id="animation" class="animation" />
-      <div id="narrator" class="narrator"></div>
-      <img id="moodBar" class="mood" />
-      <button id="prevAnim" class="prev">SEBELUMNYA</button>
-      <button id="nextAnim" class="next">LANJUT</button>
+      <!-- <div id="narrator" class="narrator"></div> -->
+      <div class="gameplay-bottom">
+        <div id="narrator" class="narrator-bottom"></div>
+        <div class="mood-container">
+          <img id="moodBar" class="mood" />
+        </div>
+        <button id="nextAnim" class="next">LANJUT</button>
+      </div>
     </div>
     
     <!-- OPTION STATE -->
     <div id="option" class="screen">
       <img src="assets/bg_gameplay.png" class="bg" />
-      <div class="dialog">
-        <img src="assets/dialog_box.png" class="dialog-box" />
-        <div class="name">Putra</div>
-        <div id="optionNarrator" class="narrator" style="position: relative; background: none; top: auto; width: auto; padding: 0; margin-bottom: 20px;"></div>
+      <div class="dialog-container">
+        <div class="dialog">
+          <!-- <img src="assets/dialog_box.png" class="dialog-box" /> -->
+          <div class="dialog-content">
+            <div class="name">Putra</div>
+            <div id="optionNarrator" class="narrator-inside"></div>
+          </div>
+        </div>
         <div class="choices">
-          <button id="choiceA">A</button>
-          <button id="choiceB">B</button>
+          <button id="choiceA"></button>
+          <button id="choiceB"></button>
         </div>
       </div>
     </div>

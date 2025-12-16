@@ -47,7 +47,7 @@ button,
 
 .animation {
   position: absolute;
-  bottom: 25%;
+  bottom: 40%;
   left: 50%;
   transform: translateX(-50%);
   max-width: 80%;
@@ -55,46 +55,105 @@ button,
 
 .narrator {
   position: absolute;
-  top: 5%;
-  width: 100%;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 80%;
   text-align: center;
   padding: 16px;
   background: rgba(0, 0, 0, 0.6);
   color: white;
 }
 
-.mood {
+.gameplay-bottom {
   position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
+  bottom: 2%;
+  left: 5%;
+  right: 5%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 8px;
+  width: 90%;
+  height: 120px;
+}
+
+.narrator-bottom {
+  grid-column: 1 / span 3;
+  grid-row: 1 / span 2;
+  text-align: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.mood-container {
+  grid-column: 4;
+  grid-row: 1;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mood {
+  width: 100%;
+  height: auto;
 }
 
 .prev {
-  position: absolute;
-  bottom: 12%;
-  left: 25%;
-  /* transform: translateX(35%); */
+  display: none;
 }
 
 .next {
+  grid-column: 4;
+  grid-row: 2;
+  width: 100%;
+  align-self: end;
+  justify-self: center;
+}
+
+.dialog-container {
   position: absolute;
-  bottom: 12%;
-  left: 65%;
-  /* transform: translateX(90%); */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
 
 .dialog {
-  position: absolute;
-  bottom: 10%;
-  width: 90%;
-  left: 5%;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .dialog-box {
-  bottom: 80%;
   width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.dialog-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  z-index: 2;
+  color: white;
 }
 
 .name-box {
@@ -105,6 +164,17 @@ button,
 .name {
   font-weight: bold;
   margin-bottom: 12px;
+  font-size: 16px;
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  color: black;
+}
+
+.narrator-inside {
+  color: black;
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  font-size: 14px;
+  line-height: 1.5;
+  word-wrap: break-word;
 }
 
 .choices {
@@ -113,14 +183,32 @@ button,
   display: flex;
   flex-direction: column;
   gap: 16px;
+  pointer-events: auto;
 }
 
 .choices button {
   width: 100%;
   padding: 16px;
   text-align: left;
-  background: rgba(255, 255, 255, 0.9);
+  background-image: url('assets/dialog_box.png');
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.3);
   cursor: pointer;
+  font-size: 14px;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  transition: transform 0.2s ease;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+  position: relative;
+  z-index: 10;
+}
+
+.choices button:hover {
+  transform: scale(1.05);
 }
 
 #choiceA {

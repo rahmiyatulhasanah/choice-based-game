@@ -10,9 +10,9 @@ let choicesMade = {}; // Track choices per scene to only count first time
 const chapters = {
   1: {
     anims: [
-      { img: "assets/anim_ch1_1.gif", text: "Ini adalah Putra. Mahasiswa semester akhir di salah satu kampus ternama. Hari ini, semangatnya sedang penuh." },
-      { img: "assets/anim_ch1_2.gif", text: "Narator 2" },
-      { img: "assets/anim_ch1_3.gif", text: "Narator 3" },
+      { img: "assets/anim_ch1_1.gif", text: "Ini adalah Putra. Mahasiswa semester akhir di salah satu kampus ternama. Hari ini, semangatnya sedang penuh. Putra: 'Cuaca hari ini cerah banget. Rasanya semua tugas kuliah bakal lancar kalau mood sebagus ini.'" },
+      { img: "assets/anim_ch1_2.gif", text: "Putra: 'Tapi sebelum lanjut nugas... urusan perut nomor satu. Jam segini kantin pasti ramai, tapi semoga ayam geprek langganan belum habis.'" },
+      { img: "assets/anim_ch1_3.gif", text: "Putra: 'Tapi sebelum lanjut nugas... urusan perut nomor satu. Jam segini kantin pasti ramai, tapi semoga ayam geprek langganan belum habis.'" },
     ],
     mood: 2,
     narrator: "Apa yang harus dilakukan Putra?",
@@ -34,8 +34,8 @@ const chapters = {
       },
     },
   },
-  2: {
-    anims: [{ img: "assets/anim_ch2.gif", text: "Narator" }],
+2: {
+  anims: [{ img: "assets/anim_ch2.gif", text: "Keheningan sejenak terasa lebih baik daripada kata-kata yang salah. Putra membiarkan Nadia menyadari kehadirannya tanpa merasa terancam.\nPutra: 'Dia terlihat terguncang sekali. Aku nggak boleh gegabah. Salah ngomong sedikit bisa bikin dia lari.'" }],
     mood: 3,
     narrator: "Nadia mulai sedikit tenang, tapi ia belum bicara. Bagaimana cara Putra membuka percakapan agar Nadia merasa aman?",
     options: {
@@ -56,8 +56,8 @@ const chapters = {
       },
     },
   },
-  3: {
-    anims: [{ img: "assets/anim_ch3.gif", text: "Narator" }],
+3: {
+  anims: [{ img: "assets/anim_ch3.gif", text: "Suasana koridor perlahan menjadi hening. Mahasiswa lain yang berlalu-lalang mulai menjauh, memberi ruang privasi yang sangat dibutuhkan saat ini.\nPutra: 'Syukurlah, dia sudah mulai bisa bernapas lega. Aku nggak boleh buru-buru nanya macam-macam. Yang penting sekarang dia tahu kalau dia nggak sendirian.'" }],
     mood: 3,
     narrator: "Nadia mulai sedikit tenang, tapi ia belum bicara. Bagaimana cara Putra membuka percakapan agar Nadia merasa aman?",
     options: {
@@ -78,8 +78,8 @@ const chapters = {
       },
     },
   },
-  4: {
-    anims: [{ img: "assets/anim_ch4.gif", text: "Narator" }],
+4: {
+  anims: [{ img: "assets/anim_ch4.gif", text: "Beberapa menit berlalu dalam diam yang menenangkan. Isakan Nadia perlahan mereda, menyisakan mata yang memerah dan napas yang berangsur teratur.\nPutra: 'Dia sudah sedikit lebih tenang. Ini momen penting. Aku nggak boleh merusak rasa amannya dengan pertanyaan yang salah.'\nPutra: 'Jangan tanya kenapa. Jangan tanya siapa. Fokus ke apa yang dia butuhkan sekarang.'" }],
     mood: 4,
     narrator: "Putra ingin menawarkan bantuan tanpa membuat Nadia merasa tersudut. Kalimat mana yang harus ia pilih?",
     options: {
@@ -101,7 +101,7 @@ const chapters = {
     },
   },
   5: {
-    anims: [{ img: "assets/anim_ch5.gif", text: "Narator" }],
+    anims: [{ img: "assets/anim_ch5.gif", text: "Nadia menarik napas dalam-dalam, mencoba merangkai kata di tengah gemuruh emosinya. Putra menunggu dengan sabar, tidak memotong.\nNadia: (Suara pelan, serak, dan terbata-bata) 'Aku... aku cuma... merasa overwhelmed...'\n(Nadia berhenti sejenak, menelan ludah).\nNadia: '...Mereka... ngomong hal-hal yang bikin aku down...'\nPutra (Dalam Hati): 'Akhirnya dia mau bicara. Ini momen krusial. Aku nggak boleh salah respon. Aku nggak boleh menghakimi atau mendesak dia.'" }],
     mood: 4,
     narrator: "Nadia mulai membuka diri tentang perasaannya. Bagaimana Putra harus merespons agar Nadia tetap merasa aman?",
     options: {
@@ -122,8 +122,8 @@ const chapters = {
       },
     },
   },
-  6: {
-    anims: [{ img: "assets/anim_ch6.gif", text: "Narator" }],
+6: {
+  anims: [{ img: "assets/anim_ch5.gif", text: "Hening sejenak. Nadia berusaha mengumpulkan sisa-sisa tenaganya. Putra menyadari bahwa meskipun Nadia sudah lebih stabil, membiarkannya kembali sendirian ke keramaian mungkin bukan ide yang baik.\nPutra (Dalam Hati): 'Dia butuh ruang aman. Tapi aku nggak boleh mutusin sepihak. Dia yang paling tahu apa yang dia butuhin sekarang.'" }],
     mood: 4,
     narrator: "Putra ingin menawarkan langkah selanjutnya yang mendukung pemulihan Nadia tanpa memaksanya. Apa yang sebaiknya ia katakan?",
     options: {
@@ -190,7 +190,7 @@ document.getElementById("nextAnim").addEventListener("click", () => {
   animIndex++;
   if (animIndex >= chapters[chapter].anims.length) {
     // All animations done, show options
-    show("option");
+    showOptions();
   } else {
     updateGameplay();
   }
@@ -263,6 +263,14 @@ function updateGameplay() {
 function updateMoodBar() {
   const moodBar = document.getElementById("moodBar");
   moodBar.src = `assets/mood_lv${mood}.png`;
+}
+
+function showOptions() {
+  const chapterData = chapters[chapter];
+  document.getElementById("optionNarrator").innerText = chapterData.narrator;
+  document.getElementById("choiceA").innerText = chapterData.options.A.text;
+  document.getElementById("choiceB").innerText = chapterData.options.B.text;
+  show("option");
 }
 
 function handleChoice(choice) {
