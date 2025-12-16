@@ -129,7 +129,7 @@ button{
   position: relative;
   left: auto;
   bottom: auto;
-  width: 100%;
+  width: 70%;
   /* margin-top: 20px; */
 }
 
@@ -293,4 +293,15 @@ button{
   cursor: pointer;
   margin: 2px 0px;
   scale: 0.9;
+}
+
+.educationText {
+  position: relative;
+  background: rgba(0, 0, 0, 0.8);
+  top: auto;
+  width: 100%;
+  padding: 24px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  color: white;
 }
