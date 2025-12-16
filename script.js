@@ -5,7 +5,7 @@ let chapter = 1;
 let animIndex = 0;
 let mood = 2; // Start at mood level 2
 let poinEnding = 0;
-let choicesMade = {}; // Track choices per scene to only count first time
+let choicesMade = {};
 
 const chapters = {
   1: {
@@ -150,7 +150,7 @@ const chapters = {
 const screens = {
   menu: document.getElementById("menu"),
   gameplay: document.getElementById("gameplay"),
-  option: document.getElementById("option"),
+  option: document.getElementById("options"),
   education: document.getElementById("education"),
   result: document.getElementById("result"),
   ending: document.getElementById("ending"),
@@ -265,11 +265,51 @@ function updateMoodBar() {
   moodBar.src = `assets/mood_lv${mood}.png`;
 }
 
+// function showOptions() {
+//   const chapterData = chapters[chapter];
+//   document.getElementById("optionNarrator").innerText = chapterData.narrator;
+//   document.getElementById("choiceA").innerText = chapterData.options.A.text;
+//   document.getElementById("choiceB").innerText = chapterData.options.B.text;
+
+//   console.log("Buttons found?", 
+//   document.getElementById("choiceA"), 
+//   document.getElementById("choiceB")
+//   );
+//   console.log("Button A text:", chapterData.options.A.text);
+
+//   show("option");
+// }
+
 function showOptions() {
   const chapterData = chapters[chapter];
   document.getElementById("optionNarrator").innerText = chapterData.narrator;
   document.getElementById("choiceA").innerText = chapterData.options.A.text;
   document.getElementById("choiceB").innerText = chapterData.options.B.text;
+  
+  // HARDCORE DEBUG
+  const btnA = document.getElementById("choiceA");
+  const btnB = document.getElementById("choiceB");
+  
+  console.log("=== BUTTON DEBUG ===");
+  console.log("Button A element:", btnA);
+  console.log("Button A disabled?", btnA.disabled);
+  console.log("Button A display:", window.getComputedStyle(btnA).display);
+  console.log("Button A pointer-events:", window.getComputedStyle(btnA).pointerEvents);
+  console.log("Button A parent:", btnA.parentElement);
+  console.log("Button A parent display:", window.getComputedStyle(btnA.parentElement).display);
+  console.log("Options screen display:", window.getComputedStyle(screens.option).display);
+  
+  // Try manually adding click listener
+  btnA.onclick = function() {
+    console.log("BUTTON A CLICKED VIA ONCLICK!");
+    handleChoice("A");
+  };
+  
+  btnB.onclick = function() {
+    console.log("BUTTON B CLICKED VIA ONCLICK!");
+    handleChoice("B");
+  };
+  
   show("option");
 }
 

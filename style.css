@@ -14,7 +14,7 @@ body {
 }
 
 .screen {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -37,6 +37,7 @@ button,
 }
 
 .bg {
+  z-index: 0;
   position: absolute;
   top: 0;
   left: 0;
@@ -119,6 +120,14 @@ button,
   justify-self: center;
 }
 
+.retryBtn {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  width: 100%;
+  /* margin-top: 20px; */
+}
+
 .dialog-container {
   position: absolute;
   top: 50%;
@@ -130,6 +139,7 @@ button,
   flex-direction: column;
   gap: 20px;
   align-items: center;
+  z-index: 2;
 }
 
 .dialog {
@@ -141,6 +151,7 @@ button,
   background-color: rgba(0, 0, 0, 0.3);
   padding: 16px;
   border-radius: 12px;
+  z-index: 1; /* ← ADD THIS - lower than choices */
 }
 
 .dialog-box {
@@ -189,7 +200,8 @@ button,
   display: flex;
   flex-direction: column;
   gap: 16px;
-  pointer-events: auto;
+  z-index: 3; /* ← Already have this, good */
+  pointer-events: auto; /* ← ADD THIS to be extra sure */
 }
 
 .choices button {
@@ -207,7 +219,6 @@ button,
   min-height: 60px;
   display: flex;
   align-items: center;
-  pointer-events: auto;
   position: relative;
   z-index: 10;
 }
@@ -225,10 +236,12 @@ button,
 /* Ensure dialog and choices are above background and receive pointer events */
 .dialog-container {
   z-index: 50;
-  pointer-events: auto;
 }
 
 .choices button {
   z-index: 60;
-  pointer-events: auto;
+}
+
+.dialog-content {
+  pointer-events: none; /* ← Dialog content won't block clicks */
 }
