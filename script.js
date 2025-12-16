@@ -334,6 +334,14 @@ function handleChoice(choice) {
   if (choiceData.education) {
     // Show education message
     document.getElementById("educationText").innerText = choiceData.education;
+    
+    // ADD THIS - Attach retry button click handler
+    document.getElementById("retryBtn").onclick = () => {
+      animIndex = 0;
+      show("gameplay");
+      updateGameplay();
+    };
+    
     show("education");
   } else {
     // Move to next scene
@@ -347,6 +355,40 @@ function handleChoice(choice) {
     }
   }
 }
+// function handleChoice(choice) {
+//   const chapterData = chapters[chapter];
+//   const choiceData = chapterData.options[choice];
+
+//   // Only count poin on first choice of this scene
+//   if (!choicesMade[chapter]) {
+//     mood += choiceData.moodChange;
+//     poinEnding += choiceData.poinChange;
+//     choicesMade[chapter] = choice;
+//   } else {
+//     // Still update mood on retry but don't count poin again
+//     mood += choiceData.moodChange;
+//   }
+
+//   // Clamp mood between 0 and 5
+//   if (mood < 0) mood = 0;
+//   if (mood > 5) mood = 5;
+
+//   if (choiceData.education) {
+//     // Show education message
+//     document.getElementById("educationText").innerText = choiceData.education;
+//     show("education");
+//   } else {
+//     // Move to next scene
+//     if (choiceData.isEnding) {
+//       showEnding();
+//     } else {
+//       chapter = choiceData.nextScene;
+//       animIndex = 0;
+//       show("gameplay");
+//       updateGameplay();
+//     }
+//   }
+// }
 
 function showEnding() {
   const endingScreen = document.getElementById("ending");

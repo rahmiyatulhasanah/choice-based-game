@@ -48,10 +48,11 @@ button,
 
 .animation {
   position: absolute;
-  bottom: 40%;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: 80%;
+  /* bottom: 40%; */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+  /* max-width: 80%; */
+  width: 100vw;
 }
 
 .narrator {
