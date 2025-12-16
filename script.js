@@ -204,11 +204,11 @@ document.getElementById("prevAnim").addEventListener("click", () => {
 });
 
 document.getElementById("choiceA").addEventListener("click", () => {
-  handleChoice(A);
+  handleChoice("A");
 });
 
 document.getElementById("choiceB").addEventListener("click", () => {
-  handleChoice(B);
+  handleChoice("B");
 });
 
 document.getElementById("retryBtn").addEventListener("click", () => {

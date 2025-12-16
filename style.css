@@ -138,6 +138,9 @@ button,
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  border-radius: 12px;
 }
 
 .dialog-box {
@@ -147,13 +150,16 @@ button,
 }
 
 .dialog-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* position: absolute; */
+  /* top: 50%;
+  left: 50%; */
+  align-items: center;
+  align-content: center;
+  /* remove unexpected offset so content aligns inside the dialog container */
+  transform: none;
   width: 85%;
   z-index: 1;
-  color: white;
+  color: black;
 }
 
 .name-box {
@@ -166,7 +172,7 @@ button,
   margin-bottom: 12px;
   font-size: 16px;
   /* background-color: rgba(0, 0, 0, 0.3); */
-  color: black;
+  color: white;
 }
 
 .narrator-inside {
@@ -190,7 +196,6 @@ button,
   width: 100%;
   padding: 16px;
   text-align: left;
-  background-image: url('assets/dialog_box.png');
   background-size: cover;
   background-position: center;
   background-color: rgba(0, 0, 0, 0.3);
@@ -215,4 +220,15 @@ button,
   color: white;
   font-size: 16px;
   line-height: 1.6;
+}
+
+/* Ensure dialog and choices are above background and receive pointer events */
+.dialog-container {
+  z-index: 50;
+  pointer-events: auto;
+}
+
+.choices button {
+  z-index: 60;
+  pointer-events: auto;
 }
