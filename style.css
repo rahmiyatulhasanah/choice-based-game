@@ -71,12 +71,21 @@ button,
   width: 60%;
 }
 
+.prev {
+  position: absolute;
+  bottom: 12%;
+  left: 25%;
+  /* transform: translateX(35%); */
+}
+
 .next {
   position: absolute;
   bottom: 12%;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 65%;
+  /* transform: translateX(90%); */
 }
+
+
 
 .dialog {
   position: absolute;

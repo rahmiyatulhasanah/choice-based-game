@@ -8,7 +8,7 @@ let mood = 0;
 const chapters = {
   1: {
     anims: [
-      { img: "assets/anim_ch1_1.gif", text: "Narator 1" },
+      { img: "assets/anim_ch1_1.gif", text: "Ini adalah Putra. Mahasiswa semester akhir di salah satu kampus ternama. Hari ini, semangatnya sedang penuh." },
       { img: "assets/anim_ch1_2.gif", text: "Narator 2" },
       { img: "assets/anim_ch1_3.gif", text: "Narator 3" },
     ],
@@ -78,6 +78,13 @@ document.getElementById("nextAnim").addEventListener("click", () => {
     // All animations done, show options
     show("option");
   } else {
+    updateGameplay();
+  }
+});
+
+document.getElementById("prevAnim").addEventListener("click", () => {
+  if (animIndex > 0) {
+    animIndex--;
     updateGameplay();
   }
 });
