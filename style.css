@@ -29,6 +29,10 @@ button,
   background: white;
 }
 
+button{
+  cursor: pointer;
+}
+
 #menu button {
   position: absolute;
   bottom: 20%;
@@ -245,4 +249,48 @@ button,
 
 .dialog-content {
   pointer-events: none; /* ← Dialog content won't block clicks */
+}
+
+.ending {
+  width: 50vw;
+  position: absolute;
+  align-items: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.endingTitle {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.endingText {
+  position: relative;
+  background: rgba(0, 0, 0, 0.8);
+  top: auto;
+  width: 100%;
+  padding: 24px;
+  margin-bottom: 6px;
+  border-radius: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  color: white;
+}
+
+.endingBtn {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  width: 50%;
+  cursor: pointer;
+  margin: 2px 0px;
+  scale: 0.9;
 }
