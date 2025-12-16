@@ -152,7 +152,7 @@ button,
   left: 50%;
   transform: translate(-50%, -50%);
   width: 85%;
-  z-index: 2;
+  z-index: 1;
   color: white;
 }
 
@@ -209,14 +209,6 @@ button,
 
 .choices button:hover {
   transform: scale(1.05);
-}
-
-#choiceA {
-  z-index: 2;
-}
-
-#choiceB {
-  z-index: 1;
 }
 
 #optionNarrator {

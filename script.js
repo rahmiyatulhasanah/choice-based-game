@@ -123,7 +123,7 @@ const chapters = {
     },
   },
 6: {
-  anims: [{ img: "assets/anim_ch5.gif", text: "Hening sejenak. Nadia berusaha mengumpulkan sisa-sisa tenaganya. Putra menyadari bahwa meskipun Nadia sudah lebih stabil, membiarkannya kembali sendirian ke keramaian mungkin bukan ide yang baik.\nPutra (Dalam Hati): 'Dia butuh ruang aman. Tapi aku nggak boleh mutusin sepihak. Dia yang paling tahu apa yang dia butuhin sekarang.'" }],
+  anims: [{ img: "assets/anim_ch6.gif", text: "Hening sejenak. Nadia berusaha mengumpulkan sisa-sisa tenaganya. Putra menyadari bahwa meskipun Nadia sudah lebih stabil, membiarkannya kembali sendirian ke keramaian mungkin bukan ide yang baik.\nPutra (Dalam Hati): 'Dia butuh ruang aman. Tapi aku nggak boleh mutusin sepihak. Dia yang paling tahu apa yang dia butuhin sekarang.'" }],
     mood: 4,
     narrator: "Putra ingin menawarkan langkah selanjutnya yang mendukung pemulihan Nadia tanpa memaksanya. Apa yang sebaiknya ia katakan?",
     options: {
@@ -160,17 +160,17 @@ const endingData = {
   good: {
     title: "GOOD ENDING",
     text: "Kamu Sudah Menjadi Dukungan yang Tepat\n\nKamu berhasil memberikan bantuan yang tepat. Kehadiranmu membuat Nadia merasa lebih aman, didengar, dan dihargai. Terkadang, menyelamatkan satu orang hari ini sudah lebih dari cukup.",
-    bg: "assets/bg_gameplay.png",
+    bg: "assets/Good Ending.png",
   },
   neutral: {
     title: "NEUTRAL ENDING",
     text: "Niat Baik Perlu Cara yang Tepat\n\nKamu sudah mencoba, tapi masih ada yang perlu dipelajari. Membantu seseorang bukan hanya soal niat, tapi juga soal cara penyampaian. Hari ini kamu belajar: Empati membutuhkan kehati-hatian agar tidak melukai tanpa sadar.",
-    bg: "assets/bg_gameplay.png",
+    bg: "assets/Neutral ending.png",
   },
   bad: {
     title: "BAD ENDING",
     text: "Belajarlah untuk Mendengar Lebih Baik\n\nResponsemu membuat Nadia merasa tidak sepenuhnya aman. Niat baikmu tidak tersampaikan karena cara yang kurang tepat. Jangan menyerah. Ini adalah kesempatan untuk belajar, memahami, dan memperbaiki diri di kesempatan berikut.",
-    bg: "assets/bg_gameplay.png",
+    bg: "assets/Bad Ending.png",
   },
 };
 
@@ -204,11 +204,11 @@ document.getElementById("prevAnim").addEventListener("click", () => {
 });
 
 document.getElementById("choiceA").addEventListener("click", () => {
-  handleChoice("A");
+  handleChoice(A);
 });
 
 document.getElementById("choiceB").addEventListener("click", () => {
-  handleChoice("B");
+  handleChoice(B);
 });
 
 document.getElementById("retryBtn").addEventListener("click", () => {
