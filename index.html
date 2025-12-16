@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Interactive Fiction</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- MAIN MENU -->
+    <div id="menu" class="screen">
+      <img src="assets/menu.png" class="bg" />
+      <button id="startBtn">Mulai</button>
+    </div>
+
+    <!-- GAMEPLAY -->
+    <div id="gameplay" class="screen">
+      <img id="bgGameplay" class="bg" src="assets/bg_gameplay.png" />
+      <img id="animation" class="animation" />
+      <div id="narrator" class="narrator"></div>
+      <img id="moodBar" class="mood" />
+      <button id="nextAnim" class="next">LANJUT</button>
+    </div>
+    
+
+    <!-- OPTION STATE -->
+    <div id="option" class="screen">
+      <img src="assets/bg_option.png" class="bg" />
+      <div class="dialog">
+        <img src="assets/dialog_box.png" class="dialog-box" />
+        <img src="assets/name_box.png" class="name-box" />
+        <div class="name">Putra</div>
+        <div class="choices">
+          <button id="choiceA">A</button>
+          <button id="choiceB">B</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULT STATE -->
+    <div id="result" class="screen">
+      <img id="resultImg" class="bg" />
+      <div id="resultNarrator" class="narrator"></div>
+      <button id="continueBtn" class="next">LANJUT</button>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
