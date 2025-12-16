@@ -28,13 +28,21 @@
       <img src="assets/bg_gameplay.png" class="bg" />
       <div class="dialog">
         <img src="assets/dialog_box.png" class="dialog-box" />
-        <img src="assets/name_box.png" class="name-box" />
         <div class="name">Putra</div>
+        <div id="optionNarrator" class="narrator" style="position: relative; background: none; top: auto; width: auto; padding: 0; margin-bottom: 20px;"></div>
         <div class="choices">
-          <!-- <button id="prevAnim" class="prev">SEBELUMNYA</button> -->
           <button id="choiceA">A</button>
           <button id="choiceB">B</button>
         </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION MESSAGE STATE -->
+    <div id="education" class="screen">
+      <img src="assets/bg_gameplay.png" class="bg" />
+      <div class="dialog" style="bottom: 20%; top: 50%; transform: translateY(-50%); width: 80%; left: 10%;">
+        <div id="educationText" class="narrator" style="position: relative; background: rgba(0, 0, 0, 0.8); top: auto; width: 100%; padding: 24px; margin-bottom: 20px; border-radius: 10px;"></div>
+        <button id="retryBtn" class="next" style="position: relative; left: auto; bottom: auto; width: 100%; margin-top: 20px;">COBA LAGI</button>
       </div>
     </div>
 
@@ -43,6 +51,16 @@
       <img id="resultImg" class="bg" />
       <div id="resultNarrator" class="narrator"></div>
       <button id="continueBtn" class="next">LANJUT</button>
+    </div>
+
+    <!-- ENDING STATE -->
+    <div id="ending" class="screen">
+      <img id="endingBg" class="bg" />
+      <div class="dialog" style="bottom: 20%; top: 50%; transform: translateY(-50%); width: 90%; left: 5%; text-align: center;">
+        <div id="endingTitle" style="font-size: 32px; font-weight: bold; margin-bottom: 20px; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);"></div>
+        <div id="endingText" class="narrator" style="position: relative; background: rgba(0, 0, 0, 0.8); top: auto; width: 100%; padding: 24px; margin-bottom: 20px; border-radius: 10px; max-height: 200px; overflow-y: auto;"></div>
+        <button id="endingBtn" class="next" style="position: relative; left: auto; bottom: auto; width: 100%; margin-top: 20px;">KEMBALI KE MENU</button>
+      </div>
     </div>
 
     <script src="script.js" defer></script>

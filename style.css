@@ -10,7 +10,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* prevent page scrolling */
+  /* overflow: hidden; prevent page scrolling */
 }
 
 .screen {
@@ -85,8 +85,6 @@ button,
   /* transform: translateX(90%); */
 }
 
-
-
 .dialog {
   position: absolute;
   bottom: 10%;
@@ -95,6 +93,7 @@ button,
 }
 
 .dialog-box {
+  bottom: 80%;
   width: 100%;
 }
 
@@ -109,6 +108,31 @@ button,
 }
 
 .choices {
+  position: relative;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.choices button {
+  width: 100%;
+  padding: 16px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+}
+
+#choiceA {
+  z-index: 2;
+}
+
+#choiceB {
+  z-index: 1;
+}
+
+#optionNarrator {
+  color: white;
+  font-size: 16px;
+  line-height: 1.6;
 }
