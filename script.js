@@ -61,9 +61,25 @@ const screens = {
   result: document.getElementById("result"),
 };
 
-// FORCE INIT STATE (DEPLOY SAFE)
-document.addEventListener("DOMContentLoaded", () => {
-  show("menu");
+// // FORCE INIT STATE (DEPLOY SAFE)
+// document.addEventListener("DOMContentLoaded", () => {
+//   show("menu");
+// });
+
+// Event listeners
+document.getElementById("startBtn").addEventListener("click", () => {
+  show("gameplay");
+  updateGameplay();
+});
+
+document.getElementById("nextAnim").addEventListener("click", () => {
+  animIndex++;
+  if (animIndex >= chapters[chapter].anims.length) {
+    // All animations done, show options
+    show("option");
+  } else {
+    updateGameplay();
+  }
 });
 
 function show(screen) {
@@ -82,3 +98,4 @@ function updateGameplay() {
   animation.src = data.img;
   narrator.innerText = data.text;
 }
+
