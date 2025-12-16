@@ -247,7 +247,7 @@ const endingData = {
   bad: {
     title: "BAD ENDING",
     text: "Belajarlah untuk Mendengar Lebih Baik\n\nResponsemu membuat Nadia merasa tidak sepenuhnya aman. Niat baikmu tidak tersampaikan karena cara yang kurang tepat. Jangan menyerah. Ini adalah kesempatan untuk belajar, memahami, dan memperbaiki diri di kesempatan berikut.",
-    bg: "assets/Bad Ending.png",
+    bg: "assets/Bad Ending.jpeg",
   },
 };
 
@@ -310,6 +310,49 @@ document.getElementById("endingBtn").addEventListener("click", () => {
   resetGame();
   show("menu");
 });
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   show("menu");
+  
+//   // Attach all button handlers using onclick (works every time)
+//   document.getElementById("startBtn").onclick = () => {
+//     resetGame();
+//     show("gameplay");
+//     updateGameplay();
+//   };
+
+//   document.getElementById("nextAnim").onclick = () => {
+//     animIndex++;
+//     if (animIndex >= chapters[chapter].anims.length) {
+//       showOptions();
+//     } else {
+//       updateGameplay();
+//     }
+//   };
+
+//   document.getElementById("prevAnim").onclick = () => {
+//     if (animIndex > 0) {
+//       animIndex--;
+//       updateGameplay();
+//     }
+//   };
+
+//   document.getElementById("continueBtn").onclick = () => {
+//     chapter++;
+//     animIndex = 0;
+//     if (chapter > 6) {
+//       showEnding();
+//     } else {
+//       show("gameplay");
+//       updateGameplay();
+//     }
+//   };
+
+//   document.getElementById("endingBtn").onclick = () => {
+//     resetGame();
+//     show("menu");
+//   };
+// });
 
 function resetGame() {
   chapter = 1;

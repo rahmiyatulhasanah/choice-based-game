@@ -8,6 +8,7 @@
   </head>
   <body>
     <!-- MAIN MENU -->
+    <p style="position: absolute; z-index: 100; font-size: 10px; margin-left: 10px;">courtesy of Extra Creative</p>
     <div id="menu" class="screen">
       <img src="assets/menu.png" class="bg" />
       <button id="startBtn">Mulai</button>
@@ -67,8 +68,8 @@
       <div class="ending">
         <div id="endingTitle" class="endingTitle"></div>
         <div id="endingText" class="endingText"></div>
-        <button id="endingBtn" class="endingBtn">Kembali ke Menu Utama</button>
-        <button id="credits" class="endingBtn" style="scale: 0.8;">Anggota Kelompok</button>
+        <button id="endingBtn" class="endingBtn" onclick="resetGame(); show('menu')">Kembali ke Menu Utama</button>
+        <!-- <button id="credits" class="endingBtn" style="scale: 0.8;">Anggota Kelompok</button> -->
       </div>
     </div>
 
