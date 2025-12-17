@@ -1,11 +1,13 @@
-// rara was here
-
 let state = "menu";
 let chapter = 1;
 let animIndex = 0;
 let mood = 2; // Start at mood level 2
 let poinEnding = 0;
 let choicesMade = {};
+
+const sounds = {
+
+}
 
 const chapters = {
   1: {
