@@ -51,7 +51,9 @@
       <img src="assets/bg_gameplay.png" class="bg" />
       <div class="ending">
         <div id="educationText" class="educationText"></div>
-        <button id="retryBtn" class="retryBtn" style="scale: 0.9;" >Coba Lagi</button>
+        <!-- <button id="retryBtn" class="retryBtn" style="scale: 0.9;" onclick="playSound(sounds.mouseClick, 0.2)">Coba Lagi</button> -->
+        <button id="retryBtn" class="retryBtn" style="scale: 0.9;">Coba Lagi</button>
+
       </div>
     </div>
 
@@ -68,7 +70,7 @@
       <div class="ending">
         <div id="endingTitle" class="endingTitle"></div>
         <div id="endingText" class="endingText"></div>
-        <button id="endingBtn" class="endingBtn" onclick="resetGame(); show('menu')">Kembali ke Menu Utama</button>
+        <button id="endingBtn" class="endingBtn" onclick="resetGame(); show('menu'); playSound(sounds.mouseClick, 0.2)">Kembali ke Menu Utama</button>
         <!-- <button id="credits" class="endingBtn" style="scale: 0.8;">Anggota Kelompok</button> -->
       </div>
     </div>

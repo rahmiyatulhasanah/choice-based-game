@@ -6,8 +6,14 @@ let poinEnding = 0;
 let choicesMade = {};
 
 const sounds = {
-
+  mouseClick: new Audio("assets/sound/mouse-click.mp3"),
+  typewriting: new Audio("assets/sound/text.mp3"),
+  transisi: new Audio("assets/sound/transisi.mp3")
 }
+
+sounds.mouseClick.volume = 0.25;
+sounds.typewriting.volume = 0.12;
+sounds.transisi.volume = 0.4;
 
 const chapters = {
   1: {
@@ -253,6 +259,12 @@ const endingData = {
   },
 };
 
+function playSound(sound, volume = null) {
+  if (volume !== null) sound.volume = volume;
+  sound.currentTime = 0;
+  sound.play();
+}
+
 // FORCE INIT STATE (DEPLOY SAFE)
 document.addEventListener("DOMContentLoaded", () => {
   show("menu");
@@ -261,6 +273,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // Event listeners
 document.getElementById("startBtn").addEventListener("click", () => {
   resetGame();
+  // playSound(sounds.mouseClick);
+  playSound(sounds.mouseClick, 0.2);
   show("gameplay");
   updateGameplay();
 });
@@ -270,8 +284,10 @@ document.getElementById("nextAnim").addEventListener("click", () => {
   if (animIndex >= chapters[chapter].anims.length) {
     // All animations done, show options
     showOptions();
+    playSound(sounds.transisi, 0.4);
   } else {
     updateGameplay();
+    playSound(sounds.transisi);
   }
 });
 
@@ -291,6 +307,7 @@ document.getElementById("choiceB").addEventListener("click", () => {
 });
 
 document.getElementById("retryBtn").addEventListener("click", () => {
+  playSound(sounds.mouseClick, 0.2)
   animIndex = 0;
   show("gameplay");
   updateGameplay();
@@ -313,49 +330,6 @@ document.getElementById("endingBtn").addEventListener("click", () => {
   show("menu");
 });
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   show("menu");
-  
-//   // Attach all button handlers using onclick (works every time)
-//   document.getElementById("startBtn").onclick = () => {
-//     resetGame();
-//     show("gameplay");
-//     updateGameplay();
-//   };
-
-//   document.getElementById("nextAnim").onclick = () => {
-//     animIndex++;
-//     if (animIndex >= chapters[chapter].anims.length) {
-//       showOptions();
-//     } else {
-//       updateGameplay();
-//     }
-//   };
-
-//   document.getElementById("prevAnim").onclick = () => {
-//     if (animIndex > 0) {
-//       animIndex--;
-//       updateGameplay();
-//     }
-//   };
-
-//   document.getElementById("continueBtn").onclick = () => {
-//     chapter++;
-//     animIndex = 0;
-//     if (chapter > 6) {
-//       showEnding();
-//     } else {
-//       show("gameplay");
-//       updateGameplay();
-//     }
-//   };
-
-//   document.getElementById("endingBtn").onclick = () => {
-//     resetGame();
-//     show("menu");
-//   };
-// });
-
 function resetGame() {
   chapter = 1;
   animIndex = 0;
@@ -376,6 +350,8 @@ function show(screen) {
 }
 
 function updateGameplay() {
+  // playSound(sounds.mouseClick, 0.2);
+
   const data = chapters[chapter].anims[animIndex];
   document.getElementById("animation").src = data.img;
   document.getElementById("narrator").innerText = data.text;
@@ -430,6 +406,7 @@ function showOptions() {
 }
 
 function handleChoice(choice) {
+  playSound(sounds.mouseClick, 0.2);
   const chapterData = chapters[chapter];
   const choiceData = chapterData.options[choice];
 
@@ -454,6 +431,7 @@ function handleChoice(choice) {
     // ADD THIS - Attach retry button click handler
     document.getElementById("retryBtn").onclick = () => {
       animIndex = 0;
+      playSound(sounds.mouseClick, 0.2);
       show("gameplay");
       updateGameplay();
     };
@@ -473,6 +451,7 @@ function handleChoice(choice) {
 }
 
 function showEnding() {
+  playSound(sounds.mouseClick, 0.2);
   const endingScreen = document.getElementById("ending");
   let ending;
 
