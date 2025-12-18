@@ -11,9 +11,34 @@ const sounds = {
   transisi: new Audio("assets/sound/transisi.mp3")
 }
 
+Object.values(sounds).forEach(sound => {
+  sound.preload = "auto";
+  sound.load();
+});
+
 sounds.mouseClick.volume = 0.25;
 sounds.typewriting.volume = 0.12;
 sounds.transisi.volume = 0.4;
+
+function playSound(sound, volume = null, startAt = 0) {
+  if (volume !== null) sound.volume = volume;
+
+  // pastikan metadata ready
+  if (sound.readyState >= 1) {
+    sound.pause();
+    sound.currentTime = startAt;
+    sound.play();
+  } else {
+    sound.addEventListener(
+      "loadedmetadata",
+      () => {
+        sound.currentTime = startAt;
+        sound.play();
+      },
+      { once: true }
+    );
+  }
+}
 
 const chapters = {
   1: {
@@ -259,11 +284,11 @@ const endingData = {
   },
 };
 
-function playSound(sound, volume = null) {
-  if (volume !== null) sound.volume = volume;
-  sound.currentTime = 0;
-  sound.play();
-}
+// function playSound(sound, volume = null) {
+//   if (volume !== null) sound.volume = volume;
+//   sound.currentTime = 0;
+//   sound.play();
+// }
 
 // FORCE INIT STATE (DEPLOY SAFE)
 document.addEventListener("DOMContentLoaded", () => {
@@ -273,7 +298,6 @@ document.addEventListener("DOMContentLoaded", () => {
 // Event listeners
 document.getElementById("startBtn").addEventListener("click", () => {
   resetGame();
-  // playSound(sounds.mouseClick);
   playSound(sounds.mouseClick, 0.2);
   show("gameplay");
   updateGameplay();
@@ -282,12 +306,14 @@ document.getElementById("startBtn").addEventListener("click", () => {
 document.getElementById("nextAnim").addEventListener("click", () => {
   animIndex++;
   if (animIndex >= chapters[chapter].anims.length) {
-    // All animations done, show options
     showOptions();
-    playSound(sounds.transisi, 0.4);
+    playSound(sounds.transisi, 0.2);
+    playSound(sounds.typewriting, 0.2, 5);
   } else {
     updateGameplay();
     playSound(sounds.transisi);
+    playSound(sounds.typewriting, 0.2, 5);
+
   }
 });
 
